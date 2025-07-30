@@ -1,10 +1,19 @@
-# Arquivo de segredos
+# Arquivo .gitignore - Para ignorar arquivos sensíveis e desnecessários
+
+# Arquivos de Segredos
 .env
 
-# Ambiente Virtual do Python
+# Pasta do Ambiente Virtual do Python
 venv/
-/venv/
+*.venv
+env/
 
-# Arquivos de cache do Python
+# Arquivos de Cache do Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Arquivos de configuração de editores de código
+.vscode/
+.idea/
