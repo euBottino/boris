@@ -1,19 +1,31 @@
-# Arquivo .gitignore - Para ignorar arquivos sensíveis e desnecessários
-
-# Arquivos de Segredos
+# Arquivos de Credenciais e Segredos
+# NUNCA envie este arquivo para o GitHub. Ele contém suas senhas e tokens.
 .env
 
-# Pasta do Ambiente Virtual do Python
+# Ambiente Virtual do Python
+# Esta pasta é recriada em cada máquina e não deve estar no repositório.
 venv/
 *.venv
 env/
 
-# Arquivos de Cache do Python
+# Cache e Arquivos Gerados pelo Python
+# O Python cria esses arquivos automaticamente. Eles não são necessários no repositório.
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Arquivos de configuração de editores de código
+# Arquivos de IDEs e Editores de Código
+# Configurações específicas do seu ambiente de desenvolvimento.
 .vscode/
 .idea/
+
+# Arquivos de Log
+# Arquivos de log que seu bot pode gerar.
+*.log
+logs/
+
+# Arquivos de Sistema Operacional
+# Arquivos temporários criados pelo Windows ou macOS.
+.DS_Store
+Thumbs.db

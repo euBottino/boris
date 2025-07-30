@@ -13,10 +13,10 @@ class GeneralCog(commands.Cog):
     async def ping(self, interaction: discord.Interaction):
         """Responde com a latência atual do bot em milissegundos."""
         latencia = round(self.bot.latency * 1000)
-        
+
         # <<< CORREÇÃO 2: Usando Embeds.info(...) >>>
         await interaction.response.send_message(embed=Embeds.info(
-            "Pong! 🏓", 
+            "Pong! 🏓",
             f"Minha latência está em `{latencia}ms`.",
             bot_user=self.bot.user
         ))
@@ -41,18 +41,18 @@ class GeneralCog(commands.Cog):
         for cog_name, cog in self.bot.cogs.items():
             display_name = cog_display_names.get(cog_name, cog_name)
             cog_commands = sorted(cog.get_app_commands(), key=lambda c: c.name)
-            
+
             if cog_commands:
                 command_text = "\n".join(
                     f"`/{cmd.name}` - {cmd.description}" for cmd in cog_commands
                 )
                 embed.add_field(name=display_name, value=command_text, inline=False)
-        
+
         if self.bot.user.avatar:
             embed.set_thumbnail(url=self.bot.user.avatar.url)
-        
+
         embed.set_footer(text=f"DJ Boris | Bot de música 24/7")
-        
+
         await interaction.followup.send(embed=embed)
 
 

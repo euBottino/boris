@@ -26,7 +26,7 @@ class UtilitariosCog(commands.Cog):
                 embed=Embeds.erro("Valor Inválido", "A quantidade de mensagens deve ser maior que zero.", bot_user=self.bot.user),
                 ephemeral=True # A mensagem de erro só será visível para quem usou o comando
             )
-        
+
         if quantidade > 100:
             return await interaction.followup.send(
                 embed=Embeds.erro("Limite Excedido", "Você só pode apagar até 100 mensagens por vez.", bot_user=self.bot.user),
@@ -38,7 +38,7 @@ class UtilitariosCog(commands.Cog):
             # O +1 é para incluir a mensagem do próprio comando /limpar na contagem, se aplicável,
             # mas como a resposta é adiada, geralmente não é necessário. Limitamos a quantidade exata.
             deleted_messages = await interaction.channel.purge(limit=quantidade)
-            
+
             # Envia uma mensagem de sucesso que só o autor do comando vê (ephemeral=True)
             await interaction.followup.send(
                 embed=Embeds.sucesso("Limpeza Concluída!", f"**{len(deleted_messages)}** mensagens foram apagadas deste canal.", bot_user=self.bot.user),
